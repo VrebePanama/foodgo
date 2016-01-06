@@ -1,0 +1,1 @@
+Foodgo is a ROR webapp that orchestrates online customer orders and deliveries for people on available supermarkets
