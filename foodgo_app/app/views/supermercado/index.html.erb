@@ -1,0 +1,19 @@
+<h1> Listando Supermercados </h1>
+
+<table>
+  <tr>
+    <th>Supermercados por Región</th>
+  </tr>
+  <% @supermercados.each do |region, supermercado| %>
+    <tr>
+
+      <td><%= region %></td>
+      <% supermercado.each do |local| %>
+      <tr>
+        <td>
+        <td><%= local.nombre %></td>
+      </tr>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
