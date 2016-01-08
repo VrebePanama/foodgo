@@ -1,0 +1,1 @@
+class Courier < Usuario; end
