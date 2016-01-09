@@ -1,5 +1,6 @@
 class Usuario < ActiveRecord::Base
   self.inheritance_column = :tipo
+  has_secure_password
 
   def self.tipos
     ["Administrador","Cliente","Courier"]

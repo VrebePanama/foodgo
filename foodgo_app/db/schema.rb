@@ -17,17 +17,17 @@ ActiveRecord::Schema.define(version: 20160107205600) do
   enable_extension "plpgsql"
 
   create_table "supermercados", force: true do |t|
-    t.string   "nombre"
-    t.string   "direccion"
-    t.string   "numero_telefono"
-    t.datetime "hora_de_apertura"
-    t.datetime "hora_de_cierre"
-    t.string   "region"
+    t.string "nombre"
+    t.string "direccion"
+    t.string "numero_telefono"
+    t.time   "hora_de_apertura"
+    t.time   "hora_de_cierre"
+    t.string "region"
   end
 
   create_table "usuarios", force: true do |t|
     t.string   "nombre"
-    t.string   "contraseña"
+    t.string   "password_digest"
     t.string   "email"
     t.string   "tipo"
     t.datetime "created_at"

@@ -1,29 +1,29 @@
-<%= form_for :supermercado do |f| %>
+<%= form_for :supermercado, url: {action: "create"} do |f| %>
   <p>
     <%= f.label :nombre %><br>
-    <%= f.text_field :text%>
+    <%= f.text_field :nombre%>
   </p>
   <p>
     <%= f.label :direccion %><br>
-    <%= f.text_field :text%>
+    <%= f.text_field :direccion%>
   </p>
   <p>
     <%= f.label :numero_telefono %><br>
-    <%= f.text_field :text%>
+    <%= f.text_field :numero_telefono%>
   </p>
   <p>
     <%= f.label :hora_de_apertura %><br>
-    <%= select_datetime %>
+    <%= f.time_select :hora_de_apertura %>
   </p>
   <p>
     <%= f.label :hora_de_cierre %><br>
-    <%= select_datetime %>
+    <%= f.time_select :hora_de_cierre %>
   </p>
   <p>
     <%= f.label :region %><br>
-    <%= f.text_field :text%>
+    <%= f.text_field :region%>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </p>
 <% end %>

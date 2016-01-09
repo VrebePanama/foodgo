@@ -1,0 +1,12 @@
+<h1>Signup!</h1>
+
+<%= form_for :usuario, url: '/usuarios' do |f| %>
+
+  Nombre: <%= f.text_field :nombre %>
+  Email: <%= f.text_field :email %>
+  Tipo de Usuario: <%= f.select :tipo, options_for_select(["Administrador","Cliente","Courier"]) %>
+  Contraseña: <%= f.password_field :password %>
+  Confirmacion Contraseña: <%= f.password_field :password_confirmation %>
+  <%= f.submit "Submit" %>
+
+<% end %>

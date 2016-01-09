@@ -2,6 +2,16 @@ Rails.application.routes.draw do
 
   #root 'supermercado#index'
   resources :supermercado
+
+  root to: 'sessions#new'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+
+  get '/signup' => 'usuario#new'
+  post '/usuarios' => 'usuario#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
