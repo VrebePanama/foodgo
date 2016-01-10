@@ -4,9 +4,9 @@ class CreateSupermercados < ActiveRecord::Migration
       t.string :nombre
       t.string :direccion
       t.string :numero_telefono
+      t.string :region
       t.time :hora_de_apertura
       t.time :hora_de_cierre
-      t.string :region
     end
   end
 end

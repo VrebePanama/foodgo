@@ -10,8 +10,8 @@
       <td><%= region %></td>
       <% supermercado.each do |local| %>
       <tr>
-        <td>
-        <td><%= local.nombre %></td>
+        <td></td>
+        <td><%= link_to local.nombre, local %></td>
       </tr>
       <% end %>
     </tr>

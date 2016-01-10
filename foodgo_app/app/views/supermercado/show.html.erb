@@ -1,0 +1,32 @@
+<h1> Listando Supermercado </h1>
+
+ <h3><%= @supermercado.nombre %></h3>
+  <table>
+
+    <tr>
+      <td>Hora de Apertura - <%= "#{@supermercado.hora_de_apertura.hour}:#{@supermercado.hora_de_apertura.min}"  %></td>
+    </tr>
+    <tr>
+      <td>Items:</td>
+      <tr>
+        <td></td>
+        <% @supermercado.item_inventarios.each do |item|  %>
+        <tr>
+          <td><%= item.nombre_producto %></td>
+          <td><%= item.precio %></td>
+          <td><%= item.unidad %></td>
+          <td><%= item.tag_list %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Edita Item", edit_supermercado_item_inventario_path(@supermercado.id, item.id) %></td>
+        </tr>
+        <% end %>
+      </tr>
+      <tr>
+        <td><%= link_to "Nuevo Item", new_supermercado_item_inventario_path(@supermercado) %></td>
+      </tr>
+      <tr>
+        <td><%= link_to "Supermercados", supermercado_index_path %></td>
+      </tr>
+    </tr>
+  </table>

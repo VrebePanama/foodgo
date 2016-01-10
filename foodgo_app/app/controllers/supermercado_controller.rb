@@ -15,6 +15,10 @@ class SupermercadoController < ApplicationController
     @supermercados = Supermercado.all.group_by {|supermercado| supermercado.region }
   end
 
+  def show
+    @supermercado = Supermercado.find(params[:id])
+  end
+
   private
 
   def supermercado_params

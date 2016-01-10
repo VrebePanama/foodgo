@@ -1,0 +1,25 @@
+<%= form_for :item_inventario, url: {action: "create"} do |f| %>
+  <p>
+    <%= f.label :nombre_producto %><br>
+    <%= f.text_field :nombre_producto%>
+  </p>
+  <p>
+    <%= f.label :cantidad_disponible %><br>
+    <%= f.number_field :cantidad_disponible%>
+  </p>
+  <p>
+    <%= f.label :precio %><br>
+    <%= f.number_field :precio%>
+  </p>
+  <p>
+    <%= f.label :unidad %><br>
+    <%= f.text_field :unidad %>
+  </p>
+  <p>
+    <%= f.label :tag_list, "Tags (separado por commas)" %><br>
+    <%= f.text_field :tag_list %>
+  </p>
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+<% end %>
