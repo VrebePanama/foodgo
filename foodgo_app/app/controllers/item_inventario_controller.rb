@@ -9,7 +9,7 @@ class ItemInventarioController < ApplicationController
     if item_inventario.save
       redirect_to url_for(:controller => :supermercado, :action => :show, :id => params[:supermercado_id])
     else
-      redirect_to redirect_to url_for(:controller => :item_inventario, :action => :new)
+      redirect_to url_for(:controller => :item_inventario, :action => :new)
     end
   end
 

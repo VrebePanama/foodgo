@@ -15,6 +15,15 @@ Rails.application.routes.draw do
   get '/signup' => 'usuario#new'
   post '/usuarios' => 'usuario#create'
 
+  get '/compra' => 'compra#new'
+  post '/compra' => 'compra#create'
+
+  get '/ordenes' => 'orden#index'
+  get '/carrito' => 'orden#orden_en_progreso'
+  get '/checkout' => 'orden#edit'
+
+  resources :orden, only: [:edit,:update,:destroy,:show]
+
   resources :supermercado do
     resources :item_inventario
   end

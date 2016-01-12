@@ -1,0 +1,18 @@
+<%= form_for :compra, url: {action: "create"} do |f| %>
+  <p>
+    <%= @item.nombre_producto %>
+  </p>
+  <p>
+    <%= f.label "Cantidad a comprar" %><br>
+    <%= f.number_field :cantidad_comprada %>
+  </p>
+  <p>
+    <%= hidden_field(:compra, :orden_id, :value => current_orden.id) if current_orden  %>
+  </p>
+  <p>
+    <%= hidden_field(:compra, :item_inventario_id, :value => @item.id) %>
+  </p>
+  <p>
+    <%= f.submit "Submit" %>
+  </p>
+<% end %>

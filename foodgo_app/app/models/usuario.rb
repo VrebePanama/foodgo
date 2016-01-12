@@ -1,4 +1,5 @@
 class Usuario < ActiveRecord::Base
+  has_many :ordens
   self.inheritance_column = :tipo
   has_secure_password
 

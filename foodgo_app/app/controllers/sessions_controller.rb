@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
     if usuario && usuario.authenticate(params[:password])
       session[:usuario_id] = usuario.id
       redirect_to supermercado_index_path
-      # redirect_to url_for(:controller => :supermercado, :action => :index)
     else
       redirect_to '/login'
     end

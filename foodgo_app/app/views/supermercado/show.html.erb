@@ -4,7 +4,7 @@
   <table>
 
     <tr>
-      <td>Hora de Apertura - <%= "#{@supermercado.hora_de_apertura.hour}:#{@supermercado.hora_de_apertura.min}"  %></td>
+      <td>Hora de Apertura - <%= "#{@supermercado.hora_de_apertura.hour}:#{@supermercado.hora_de_apertura.min == 0 ? "00" : @supermercado.hora_de_apertura.min}"   %></td>
     </tr>
     <tr>
       <td>Items:</td>
@@ -19,6 +19,9 @@
         </tr>
         <tr>
           <td><%= link_to "Edita Item", edit_supermercado_item_inventario_path(@supermercado.id, item.id) %></td>
+        </tr>
+        <tr>
+          <td><%= link_to "Compra Item", compra_path(:item_inventario_id => item.id) %></td>
         </tr>
         <% end %>
       </tr>

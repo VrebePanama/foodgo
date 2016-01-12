@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110165709) do
+ActiveRecord::Schema.define(version: 20160110210502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "compras", force: true do |t|
+    t.integer  "orden_id"
+    t.integer  "item_inventario_id"
+    t.integer  "cantidad_comprada"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "compras", ["item_inventario_id"], name: "index_compras_on_item_inventario_id", using: :btree
+  add_index "compras", ["orden_id"], name: "index_compras_on_orden_id", using: :btree
 
   create_table "item_inventarios", force: true do |t|
     t.integer  "supermercado_id"
@@ -27,6 +38,17 @@ ActiveRecord::Schema.define(version: 20160110165709) do
   end
 
   add_index "item_inventarios", ["supermercado_id"], name: "index_item_inventarios_on_supermercado_id", using: :btree
+
+  create_table "ordens", force: true do |t|
+    t.integer  "usuario_id"
+    t.string   "direccion"
+    t.string   "estado_de_orden"
+    t.string   "plazo_de_entrega"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ordens", ["usuario_id"], name: "index_ordens_on_usuario_id", using: :btree
 
   create_table "supermercados", force: true do |t|
     t.string "nombre"

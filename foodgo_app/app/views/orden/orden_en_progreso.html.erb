@@ -1,0 +1,24 @@
+<h1> Listando Ordenes </h1>
+
+<table>
+  <tr>
+  </tr>
+  <% @item_compras.each do |item_compra| %>
+    <tr>
+      <td> ID de la Compra: <%= item_compra[0].id %>
+      </td>
+    </tr>
+    <tr>
+      <td>Nombre del Producto: <%= item_compra[1].nombre_producto %></td>
+    </tr>
+
+  <% end %>
+  <tr>
+    <td>
+      <%= link_to "Ir a Checkout", checkout_path %>
+    </td>
+  </tr>
+  <tr>
+    <td><%= link_to "Supermercados", supermercado_index_path %></td>
+  </tr>
+</table>

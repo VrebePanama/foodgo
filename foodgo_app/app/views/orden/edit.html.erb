@@ -1,0 +1,16 @@
+<h1> Checkout </h1>
+
+
+  <%= form_for(@orden) do |f| %>
+  <p>
+    Plazo de Entrega: <%= f.select :plazo_de_entrega, options_for_select(["Entre 4pm y 5pm","Entre 5pm y 6pm","Entre 6pm y 7pm","Entre 7pm y 8pm","Otra (especificar por telefono a courier)"]) %>
+  </p>
+  <p>
+    Direccion de Entrega: <%= f.text_field :direccion %>
+  </p>
+  <p><%= hidden_field(:orden, :estado_de_orden, :value => "Esperando Courier") %>
+  </p>
+  <p>
+    <%= f.submit "Checkout" %>
+  </p>
+<% end %>

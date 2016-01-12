@@ -1,0 +1,18 @@
+<h1> Listando Orden </h1>
+
+<table>
+  <tr>
+  </tr>
+  <% @item_compras.each do |item_compra| %>
+    <tr>
+      <td> ID de la Compra: <%= item_compra[0].id %>
+      </td>
+    </tr>
+    <tr>
+      <td>Nombre del Producto: <%= item_compra[1].nombre_producto %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td><%= link_to "Ordenes", ordenes_path %></td>
+  </tr>
+</table>
