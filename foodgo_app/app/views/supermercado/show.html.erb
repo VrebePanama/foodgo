@@ -16,17 +16,18 @@
           <td><%= item.precio %></td>
           <td><%= item.unidad %></td>
           <td><%= item.tag_list %></td>
+          <td>Cantidad Disponible:<%= item.cantidad_disponible %></td>
         </tr>
         <tr>
-          <td><%= link_to "Edita Item", edit_supermercado_item_inventario_path(@supermercado.id, item.id) %></td>
+          <td><%= link_to "Edita Item", edit_supermercado_item_inventario_path(@supermercado.id, item.id) if current_user.is_administrador?%></td>
         </tr>
         <tr>
-          <td><%= link_to "Compra Item", compra_path(:item_inventario_id => item.id) %></td>
+          <td><%= link_to "Compra Item", compra_path(:item_inventario_id => item.id) unless item.cantidad_disponible <= 0 %></td>
         </tr>
         <% end %>
       </tr>
       <tr>
-        <td><%= link_to "Nuevo Item", new_supermercado_item_inventario_path(@supermercado) %></td>
+        <td><%= link_to "Nuevo Item", new_supermercado_item_inventario_path(@supermercado) if current_user.is_administrador? %></td>
       </tr>
       <tr>
         <td><%= link_to "Supermercados", supermercado_index_path %></td>

@@ -9,7 +9,7 @@
 <body>
 
 <% if current_user %>
-  Signed in as <%= current_user.nombre %> | <%= current_user.tipo %> | <%= link_to "Logout", '/logout' %>  <%= link_to "| Carrito ", carrito_path if current_orden %> | <%= link_to 'Ordenes',ordenes_path %>
+  Signed in as <%= current_user.nombre %> | <%= current_user.tipo %> | <%= link_to "Logout", '/logout' %>  <%= link_to "| Carrito ", carrito_path if current_orden %> | <%= link_to 'Ordenes Personales',ordenes_path if current_user.is_cliente? %> | <%= link_to 'Ordenes', ordenes_totales_path if current_user.is_administrador? %> | <%= link_to 'Ordenes a Buscar', ordenes_delivery_path if current_user.is_courier? %>
 <% else %>
   <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
 <% end %>

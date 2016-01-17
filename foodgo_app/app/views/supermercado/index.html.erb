@@ -19,4 +19,4 @@
   <% end %>
 </table>
 
-<%= link_to "Crear Nuevo Supermercado", :controller => :supermercado, :action => :new %>
+<%= link_to "Crear Nuevo Supermercado", :controller => :supermercado, :action => :new  if current_user.is_administrador? %>

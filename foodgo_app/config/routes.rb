@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get '/ordenes' => 'orden#index'
   get '/carrito' => 'orden#orden_en_progreso'
   get '/checkout' => 'orden#edit'
+  get '/ordenes_totales' => 'orden#todas_las_ordenes'
+  get '/ordenes_delivery' => 'orden#ordenes_a_buscar'
 
   resources :orden, only: [:edit,:update,:destroy,:show]
 

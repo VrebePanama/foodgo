@@ -1,0 +1,22 @@
+<h1> Todas Las Ordenes </h1>
+
+<table>
+  <tr>
+  </tr>
+  <% @ordenes.each do |orden| %>
+    <tr>
+      <td> ID del Orden: <%= orden.id %>
+      </td>
+      <td> | Estado del Orden: <%= orden.estado_de_orden %>
+      </td>
+
+      <td><%= link_to "Cancelar Orden", orden_path(orden), method: :delete %>
+      </td>
+      <td><%= link_to "Detalles del Orden", orden_path(orden)%></td>
+    </tr>
+
+  <% end %>
+  <tr>
+    <td><%= link_to "Supermercados", supermercado_index_path %></td>
+  </tr>
+</table>

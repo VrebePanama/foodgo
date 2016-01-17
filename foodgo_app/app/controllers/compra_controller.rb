@@ -16,6 +16,9 @@ class CompraController < ApplicationController
     end
 
     if compra.save
+      @item = ItemInventario.find(compra.item_inventario_id)
+      @item.cantidad_disponible = @item.cantidad_disponible - compra.cantidad_comprada
+      @item.save
       redirect_to supermercado_index_path
     else
       redirect_to compra_path(:item_inventario_id => @compra.item_inventario_id)
