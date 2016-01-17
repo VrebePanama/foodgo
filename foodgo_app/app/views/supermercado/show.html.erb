@@ -1,6 +1,14 @@
 <h1> Listando Supermercado </h1>
 
  <h3><%= @supermercado.nombre %></h3>
+
+ <%= form_tag(supermercado_path, :method => "get", id: "search-form") do %>
+ <div>
+   <%= text_field_tag :search, params[:search], placeholder: "Busca por tag ejemplo: Vegetal", :size => 40 %>
+   <button class="btn" type="submit">Buscar</button>
+    <%= link_to "Todos los Items", supermercado_path(@supermercado.id) %>
+ </div>
+ <% end %>
   <table>
 
     <tr>
@@ -10,13 +18,14 @@
       <td>Items:</td>
       <tr>
         <td></td>
-        <% @supermercado.item_inventarios.each do |item|  %>
+        <% @item_inventarios.each do |item|  %>
         <tr>
           <td><%= item.nombre_producto %></td>
           <td><%= item.precio %></td>
           <td><%= item.unidad %></td>
           <td><%= item.tag_list %></td>
           <td>Cantidad Disponible:<%= item.cantidad_disponible %></td>
+          <td><%= image_tag(item.link_imagen) if item.link_imagen %></td>
         </tr>
         <tr>
           <td><%= link_to "Edita Item", edit_supermercado_item_inventario_path(@supermercado.id, item.id) if current_user.is_administrador?%></td>

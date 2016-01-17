@@ -29,6 +29,6 @@ class ItemInventarioController < ApplicationController
   private
 
   def item_inventario_params
-    params.require(:item_inventario).permit(:supermercado_id, :tag_list, :nombre_producto, :cantidad_disponible, :precio,:unidad)
+    params.require(:item_inventario).permit(:supermercado_id, :tag_list, :nombre_producto, :cantidad_disponible, :precio,:unidad,:link_imagen)
   end
 end

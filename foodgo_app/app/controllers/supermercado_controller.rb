@@ -17,6 +17,8 @@ class SupermercadoController < ApplicationController
 
   def show
     @supermercado = Supermercado.find(params[:id])
+    @item_inventarios = @supermercado.item_inventarios
+    @item_inventarios = @item_inventarios.select {|item| item.tag_list.include?(params[:search])} if params[:search]
   end
 
   private
